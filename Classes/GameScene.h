@@ -4,8 +4,9 @@
 #include "cocos2d.h"
 #include "Config.h"
 
-#define MAX_BLOCK_X 16
-#define MAX_BLOCK_Y 16
+#define BLOCK_SCALE 0.5
+#define MAX_BLOCK_X 8 / BLOCK_SCALE
+#define MAX_BLOCK_Y 8 / BLOCK_SCALE
 #define REMOVING_TIME 0.1f
 #define MOVING_TIME 0.2f
 

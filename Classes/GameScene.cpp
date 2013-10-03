@@ -71,7 +71,7 @@ void GameScene::initForVariables()
     
     // コマの一辺の長さを取得
     BlockSprite* pBlock = BlockSprite::createWithBlockType(kBlockRed);
-    m_blockSize = pBlock->getContentSize().height;
+    m_blockSize = pBlock->getContentSize().height * BLOCK_SCALE;
 
     // コマ種類の配列生成
     blockTypes.push_back(kBlockRed);
@@ -116,6 +116,7 @@ void GameScene::showBlock()
             
             // コマを作成
             BlockSprite* pBlock = BlockSprite::createWithBlockType(blockType);
+            pBlock->setScale(BLOCK_SCALE);
             pBlock->setPosition(getPosition(x, y));
             m_background->addChild(pBlock, kZOrderBlock, tag);
         }
