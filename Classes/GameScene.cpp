@@ -48,6 +48,7 @@ bool GameScene::init()
     
     // 効果音の事前読み込み
     SimpleAudioEngine::sharedEngine()->preloadEffect(MP3_REMOVE_BLOCK);
+    SimpleAudioEngine::sharedEngine()->preloadEffect(WAV_EXPLOSION_BOM);
     
     return true;
 }
@@ -79,6 +80,7 @@ void GameScene::initForVariables()
     blockTypes.push_back(kBlockYellow);
     blockTypes.push_back(kBlockGreen);
     blockTypes.push_back(kBlockGray);
+    blockTypes.push_back(kBlockBom);
 
     // 変数初期化
     m_animating = false;
@@ -144,7 +146,7 @@ void GameScene::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
     if (tag != 0)
     {
         // 隣接するコマを検索する
-        list<int> sameColorBlockTags = getSameColorBlockTags(tag, blockType);
+        list<int> sameColorBlockTags = getWillRemoveBlockTags(tag, blockType);
         
         if (sameColorBlockTags.size() > 1)
         {
@@ -198,6 +200,44 @@ bool GameScene::hasSameColorBlock(list<int> blockTagList, int searchBlockTag)
     return false;
 }
 
+list<int> GameScene::getWillRemoveBlockTags(int baseTag, kBlock blockType)
+{
+    if (blockType == kBlockBom) {
+        return getNeighboringTags(baseTag, blockType);
+    } else {
+        return getSameColorBlockTags(baseTag, blockType);
+    }
+}
+
+list<int> GameScene::getNeighboringTags(int baseTag, kBlock blockType)
+{
+    list<int> neighboringTags;
+    neighboringTags.push_back(baseTag);
+    
+    list<int>::iterator it = neighboringTags.begin();
+    int tags[] = {
+        *it + 1, // up block tag
+        *it - 1, // down block tag
+        *it - 100, // left block tag
+        *it + 100, // right block tag
+        *it - 99, // up left block tag
+        *it + 101, // up right block tag
+        *it - 101, // down left block tag
+        *it + 99, // down right block tag
+    };
+    
+    for (int i = 0; i < sizeof(tags) / sizeof(tags[0]); i++)
+    {
+        // すでにリストにあるか検索
+        if (!hasSameColorBlock(neighboringTags, tags[i]))
+        {
+            neighboringTags.push_back(tags[i]);
+        }
+    }
+
+    return neighboringTags;
+}
+
 // タップされたコマと同色で且つ接しているコマの配列を返す
 list<int> GameScene::getSameColorBlockTags(int baseTag, kBlock blockType)
 {
@@ -238,6 +278,7 @@ list<int> GameScene::getSameColorBlockTags(int baseTag, kBlock blockType)
 void GameScene::removeBlock(list<int> blockTags, kBlock blockType)
 {
     bool first = true;
+    string sound = blockType == kBlockBom ? WAV_EXPLOSION_BOM : MP3_REMOVE_BLOCK;
     
     list<int>::iterator it = blockTags.begin();
     while (it != blockTags.end())
@@ -259,18 +300,15 @@ void GameScene::removeBlock(list<int> blockTags, kBlock blockType)
             CCFiniteTimeAction* sequence = CCSequence::create(scale, func, NULL);
             
             CCFiniteTimeAction* action;
-            if (first)
-            {
+            if (first) {
                 // コマが消えるサウンドアクションを生成
-                CCPlaySE* playSe = CCPlaySE::create(MP3_REMOVE_BLOCK);
+                CCPlaySE* playSe = CCPlaySE::create(sound);
                 
                 // アクションをつなげる
                 action = CCSpawn::create(sequence, playSe, NULL);
                 
                 first = false;
-            }
-            else
-            {
+            } else {
                 action = sequence;
             }
             
@@ -281,7 +319,7 @@ void GameScene::removeBlock(list<int> blockTags, kBlock blockType)
         it++;
     }
     
-    SimpleAudioEngine::sharedEngine()->playEffect(MP3_REMOVE_BLOCK);
+    SimpleAudioEngine::sharedEngine()->playEffect(sound.c_str());
 }
 
 // コマの削除
@@ -360,6 +398,7 @@ void GameScene::moveBlock()
         while (it2 != m_blockTags[*it1].end())
         {
             BlockSprite* blockSprite = (BlockSprite*)m_background->getChildByTag(*it2);
+            if (blockSprite == NULL) { continue; }
             int nextPosX = blockSprite->getNextPosX();
             int nextPosY = blockSprite->getNextPosY();
             
@@ -541,8 +580,8 @@ void GameScene::showLabel()
     CCSize bgSize = m_background->getContentSize();
     
     // 残数表示
-    int tagsForLabel[] = {kTagRedLabel, kTagBlueLabel, kTagYellowLabel, kTagGreenLabel, kTagGrayLabel};
-    const char* fontNames[] = {FONT_RED, FONT_BLUE, FONT_YELLOW, FONT_GREEN, FONT_GRAY};
+    int tagsForLabel[] = {kTagRedLabel, kTagBlueLabel, kTagYellowLabel, kTagGreenLabel, kTagGrayLabel, kTagBomLabel};
+    const char* fontNames[] = {FONT_RED, FONT_BLUE, FONT_YELLOW, FONT_GREEN, FONT_GRAY, FONT_WHITE};
     float heightRate[] = {0.61, 0.51, 0.41, 0.31, 0.21};
     
     // コマ種類のループ
@@ -595,7 +634,7 @@ bool GameScene::existsSameBlock()
         list<int>::iterator it2 = m_blockTags[*it1].begin();
         while (it2 != m_blockTags[*it1].end())
         {
-            if (getSameColorBlockTags(*it2, *it1).size() > 1)
+            if (getWillRemoveBlockTags(*it2, *it1).size() > 1)
             {
                 // 隣り合うコマが存在する場合は、trueを返す
                 return true;

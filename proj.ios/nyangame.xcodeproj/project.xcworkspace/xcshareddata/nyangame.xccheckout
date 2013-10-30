@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B75BD8D7-C5BF-4E54-A1FC-83B756548764</string>
+	<key>IDESourceControlProjectName</key>
+	<string>nyangame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>51AE1851-02A3-4295-AB51-BFED23274BBE</key>
+		<string>ssh://github.com/yusuket/nyangame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj.ios/nyangame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>51AE1851-02A3-4295-AB51-BFED23274BBE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/yusuket/nyangame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>51AE1851-02A3-4295-AB51-BFED23274BBE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>51AE1851-02A3-4295-AB51-BFED23274BBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nyangame</string>
+		</dict>
+	</array>
+</dict>
+</plist>

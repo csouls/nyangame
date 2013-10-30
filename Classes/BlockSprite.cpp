@@ -52,7 +52,10 @@ const char* BlockSprite::getBlockImageFileName(kBlock blockType)
             
         case kBlockGray:
             return "gray.png";
-            
+
+        case kBlockBom:
+            return "bom.png";
+
         default:
             CCAssert(false, "invalid blockType");
             return "";

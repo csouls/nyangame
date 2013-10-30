@@ -200,6 +200,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		7019957018210FA9004ADD6F /* baku018.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7019956F18210FA9004ADD6F /* baku018.wav */; };
 		707E750117FD59D600F1EF8E /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 707E74EC17FD59D600F1EF8E /* reset.png */; };
 		707E750217FD59D600F1EF8E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 707E74ED17FD59D600F1EF8E /* background.png */; };
 		707E750317FD59D600F1EF8E /* greenFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 707E74EE17FD59D600F1EF8E /* greenFont.fnt */; };
@@ -224,6 +225,8 @@
 		707E751D17FD5A7900F1EF8E /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707E751717FD5A7900F1EF8E /* GameScene.cpp */; };
 		707E751E17FD5A7900F1EF8E /* BlockSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707E751917FD5A7900F1EF8E /* BlockSprite.cpp */; };
 		707E751F17FD5A7900F1EF8E /* CCPlaySE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707E751B17FD5A7900F1EF8E /* CCPlaySE.cpp */; };
+		70D99CFF17FD76A3006488D7 /* bom.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D99CFE17FD76A3006488D7 /* bom.png */; };
+		70D99D0117FD7AE2006488D7 /* bomFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 70D99D0017FD7AE2006488D7 /* bomFont.fnt */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -656,6 +659,7 @@
 		1D6058910D05DD3D006BFB54 /* nyangame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nyangame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7019956F18210FA9004ADD6F /* baku018.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = baku018.wav; sourceTree = "<group>"; };
 		707E74EC17FD59D600F1EF8E /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
 		707E74ED17FD59D600F1EF8E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		707E74EE17FD59D600F1EF8E /* greenFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = greenFont.fnt; sourceTree = "<group>"; };
@@ -684,6 +688,8 @@
 		707E751A17FD5A7900F1EF8E /* BlockSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockSprite.h; path = ../Classes/BlockSprite.h; sourceTree = "<group>"; };
 		707E751B17FD5A7900F1EF8E /* CCPlaySE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCPlaySE.cpp; path = ../Classes/CCPlaySE.cpp; sourceTree = "<group>"; };
 		707E751C17FD5A7900F1EF8E /* CCPlaySE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCPlaySE.h; path = ../Classes/CCPlaySE.h; sourceTree = "<group>"; };
+		70D99CFE17FD76A3006488D7 /* bom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bom.png; sourceTree = "<group>"; };
+		70D99D0017FD7AE2006488D7 /* bomFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bomFont.fnt; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1524,6 +1530,9 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7019956F18210FA9004ADD6F /* baku018.wav */,
+				70D99D0017FD7AE2006488D7 /* bomFont.fnt */,
+				70D99CFE17FD76A3006488D7 /* bom.png */,
 				707E74EC17FD59D600F1EF8E /* reset.png */,
 				707E74ED17FD59D600F1EF8E /* background.png */,
 				707E74EE17FD59D600F1EF8E /* greenFont.fnt */,
@@ -1632,6 +1641,7 @@
 				707E750F17FD59D600F1EF8E /* blue.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				707E750D17FD59D600F1EF8E /* blueFont.png in Resources */,
+				70D99D0117FD7AE2006488D7 /* bomFont.fnt in Resources */,
 				707E750117FD59D600F1EF8E /* reset.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
@@ -1640,6 +1650,8 @@
 				707E750B17FD59D600F1EF8E /* greenFont.png in Resources */,
 				707E750917FD59D600F1EF8E /* whiteFont.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				7019957018210FA9004ADD6F /* baku018.wav in Resources */,
+				70D99CFF17FD76A3006488D7 /* bom.png in Resources */,
 				707E750717FD59D600F1EF8E /* whiteFont.fnt in Resources */,
 				707E750C17FD59D600F1EF8E /* yellowFont.png in Resources */,
 				707E751317FD59D600F1EF8E /* yellow.png in Resources */,
